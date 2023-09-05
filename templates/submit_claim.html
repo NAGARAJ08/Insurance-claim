@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Claim</title>
+</head>
+<body>
+    <h1>Submit Claim</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    {% if claim_id %}
+        <p>Claim ID: {{ claim_id }}</p>
+    {% endif %}
+    <form action="/submit_claim" method="POST">
+        <input type="hidden" name="email" value="{{ email }}">
+        <!-- Remove the hidden input field for bearer_token -->
+        <!-- <input type="hidden" name="bearer_token" value="{{ token }}"> -->
+
+        <!-- Add an input field for users to manually enter the token -->
+        <label for="bearer_token">Bearer Token:</label>
+        <input type="text" id="bearer_token" name="bearer_token" required><br><br>
+
+        <label for="incident_date">Incident Date:</label>
+        <input type="date" id="incident_date" name="incident_date" required><br><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br><br>
+        <input type="submit" value="Submit Claim">
+
+    </form>
+</body>
+</html>

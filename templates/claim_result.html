@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Claim Result</title>
+</head>
+<body>
+    <h1>Claim Result</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+        <p>Claim ID: {{ claim_id }}</p>
+    {% elif error %}
+        <p>Error: {{ error }}</p>
+    {% elif error %}
+        <p>Error: {{ user_error }}</p>
+        <p><a href="/Register">Register</a></p>
+    {% endif %}
+  <a href="/">Logout</a>
+</body>
+</html>
